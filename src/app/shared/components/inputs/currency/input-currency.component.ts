@@ -18,7 +18,6 @@ export class InputCurrencyComponent implements OnInit {
   @Input() public placeholder: string = '';
   @Input() public leftIcon: string = '';
   @Input() public controlName: string = '';
-  @Input() public type: string = 'number';
   @Input() public size: string = 'normal';
   @Input() public disabled: boolean = false;
   @Input() public floatLabel: boolean = true;
