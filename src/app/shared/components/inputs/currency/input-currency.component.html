@@ -20,6 +20,8 @@
       class="p-input"
       pInputText
       currencyMask
+      pattern="[0-9]*"
+      inputmode="numeric"
       [options]="{ prefix: prefix, thousands: '.', decimal: ',' }"
       [formControlName]="controlName"
       [placeholder]="placeholder"
