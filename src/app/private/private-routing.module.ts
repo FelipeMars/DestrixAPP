@@ -28,6 +28,13 @@ const routes: Routes = [
             (m) => m.ProfileModule
           ),
       },
+      {
+        path: 'categorias',
+        loadChildren: () =>
+          import('./features/categories/categories.module').then(
+            (m) => m.CategoriesModule
+          ),
+      },
     ],
   },
 ];

@@ -32,6 +32,7 @@ import { InputDropdownComponent } from './components/inputs/dropdown/input-dropd
 import { InputFileComponent } from './components/inputs/file/input-file.component';
 import { LineComponent } from './components/charts/line/line.component';
 import { SkeletonComponent } from './components/indicators/skeleton/skeleton.component';
+import { PieComponent } from './components/charts/pie/pie.component';
 
 const SHARED_COMPONENTS = [
   ButtonComponent,
@@ -44,6 +45,7 @@ const SHARED_COMPONENTS = [
   InputFileComponent,
   LineComponent,
   SkeletonComponent,
+  PieComponent,
 ];
 
 @NgModule({

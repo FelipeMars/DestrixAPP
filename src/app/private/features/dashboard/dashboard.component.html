@@ -98,6 +98,23 @@
     </a>
   </div>
 
+  <div class="categories__title">
+    <img src="assets/images/icons/category.svg" alt="Category Icon" />
+    <p>Categorias</p>
+  </div>
+  <div class="dashboard__categories__container">
+    <div class="categories">
+      <shared-charts-pie></shared-charts-pie>
+    </div>
+    <div class="categories__labels">
+      <div class="labels__label" *ngFor="let i of [1, 2, 3, 4]">
+        <div class="label__color"></div>
+        <p class="label__name">Nome da categoria</p>
+        <p class="label__value">R$ 0,00</p>
+      </div>
+    </div>
+  </div>
+
   <div class="dashboard__historic__chart">
     <div class="chart__container">
       <shared-charts-line
