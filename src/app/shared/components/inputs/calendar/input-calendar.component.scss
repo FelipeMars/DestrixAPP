@@ -1,0 +1,31 @@
+.shared__input__calendar {
+  transition: 0.2s;
+  padding: 16px 0 0 0;
+}
+
+.calendar__input {
+  margin: 8px 0 0;
+}
+
+.calendar__label {
+  font-size: var(--tiny-font-size);
+  margin: 0 0 0 40px;
+}
+
+.input__icon {
+  position: absolute;
+  z-index: 1;
+  margin: 16px 0 0 16px;
+  color: var(--surface-500);
+}
+
+::ng-deep {
+  .p-calendar,
+  .p-inputtext {
+    width: 100%;
+  }
+
+  .p-inputtext {
+    padding-left: 40px;
+  }
+}

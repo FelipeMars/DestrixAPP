@@ -1,0 +1,34 @@
+<form
+  *ngIf="startedForm"
+  [formGroup]="formGroup"
+  class="shared__input"
+  [ngClass]="{
+    'input--padding--top': focus || formGroup.value[controlName] !== '',
+    'p-inputtext-sm': size === 'small',
+    'p-inputtext-lg': size === 'large'
+  }"
+>
+  <span
+    class="p-float-label"
+    [ngClass]="{
+      'p-input-icon-left': hasIcon
+    }"
+  >
+    <i *ngIf="hasIcon" class="pi {{ leftIcon }}"></i>
+    <input
+      id="float-input-{{ codeId }}"
+      [type]="type"
+      class="p-input"
+      [formControlName]="controlName"
+      [placeholder]="focus ? placeholder : ''"
+      (focus)="onFocusChange(true)"
+      (blur)="onFocusChange(false)"
+      [disabled]="disabled"
+      [mask]="mask"
+      pInputText
+    />
+    <label [ngClass]="{ 'label--focus': floatLabel }" for="float-input">{{
+      label
+    }}</label>
+  </span>
+</form>

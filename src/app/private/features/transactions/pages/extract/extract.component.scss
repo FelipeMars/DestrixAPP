@@ -1,0 +1,134 @@
+.extract__overview {
+  width: 100vw;
+  padding: 32px 24px 24px;
+  background-color: var(--primary-color);
+}
+
+.overview__bg {
+  width: 100vw;
+  height: 150px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.overview__wallet {
+  height: 8vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.wallet__label {
+  color: var(--primary-100);
+}
+
+.wallet__current {
+  color: var(--primary-50);
+  font-size: var(--extra-font-size);
+  font-weight: bold;
+}
+
+.extract__periods {
+  width: 100vw;
+  height: 50px;
+  background: linear-gradient(to top, #a27df8, var(--primary-color));
+  box-shadow: 3px 30px 35px #00000010;
+  padding: 0 20px;
+  overflow-x: auto;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: -1px 0 0;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.periods__period {
+  width: fit-content;
+  padding: 8px 24px 10px;
+  background-color: #00000030;
+  border-radius: 32px;
+  transition: 0.3s;
+
+  &.period__active {
+    background-color: #00000070;
+  }
+}
+
+.period__label {
+  color: var(--surface-a);
+  white-space: pre;
+}
+
+.extract__transactions {
+  height: 73vh;
+  overflow-y: auto;
+  padding: 24px 24px 16px;
+}
+
+.transactions__transaction {
+  width: 100%;
+  padding: 24px 16px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 3px 3px 35px #00000015;
+  margin: 0 0 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.income__icon,
+.expense__icon {
+  background-color: #eeeeee99;
+  padding: 8px;
+  border-radius: 24px;
+}
+
+.income__icon {
+  color: #008000;
+}
+
+.expense__icon {
+  color: #800000;
+}
+
+.transaction__description {
+  width: 100%;
+}
+
+.description {
+  font-size: var(--small-font-size);
+  color: var(--surface-700);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.transaction__values {
+  width: 150px;
+}
+
+.values__money {
+  text-align: right;
+
+  &.money__income {
+    color: #008000;
+  }
+
+  &.money__expense {
+    color: #800000;
+  }
+}
+
+.values__date {
+  font-size: var(--tiny-font-size);
+  text-align: right;
+}

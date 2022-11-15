@@ -1,0 +1,71 @@
+<section class="transaction__extract" id="transaction-extract">
+  <div class="extract__overview">
+    <div class="overview__wallet">
+      <p class="wallet__label">
+        <i class="pi pi-wallet"></i>
+        Saldo em conta
+      </p>
+      <p class="wallet__current">
+        {{ resume?.totalAmount || 0 | currency: "R$" }}
+      </p>
+    </div>
+    <img class="overview__bg" src="assets/images/backgrounds/sprinkles.svg" />
+  </div>
+
+  <div class="extract__periods">
+    <div
+      class="periods__period period__active"
+      *ngFor="let period of periods"
+      (click)="choosePeriod(period)"
+      [ngClass]="{ period__active: period.value === selectedPeriod }"
+    >
+      <p class="period__label">{{ period.label }}</p>
+    </div>
+  </div>
+
+  <div class="extract__transactions">
+    <div
+      class="transactions__container"
+      *ngIf="!loadingExtract && extract.length > 0"
+    >
+      <div
+        class="transactions__transaction"
+        *ngFor="
+          let transaction of extract;
+          let i = index;
+          trackBy: trackByTransaction
+        "
+      >
+        <div>
+          <i
+            *ngIf="transaction.transactionType === 1"
+            class="pi pi-arrow-up income__icon"
+          ></i>
+          <i
+            *ngIf="transaction.transactionType === 2"
+            class="pi pi-arrow-down expense__icon"
+          ></i>
+        </div>
+        <div class="transaction__description">
+          <p class="description">
+            {{ transaction.transactionReference }}
+          </p>
+        </div>
+        <div class="transaction__values">
+          <p
+            class="values__money"
+            [ngClass]="{
+              money__income: transaction.transactionType === 1,
+              money__expense: transaction.transactionType === 2
+            }"
+          >
+            {{ transaction.amount | currency: "R$" }}
+          </p>
+          <p class="values__date">
+            {{ transaction.transactionDate | date: "dd/MM/yyyy" }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

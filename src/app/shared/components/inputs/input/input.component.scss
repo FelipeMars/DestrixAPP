@@ -1,0 +1,40 @@
+$error-color: #af1616;
+
+.shared__input {
+  transition: 0.2s;
+  padding: 16px 0 0 0;
+}
+
+.input--padding--top {
+  padding: 28px 0 0 0;
+}
+
+.p-float-label {
+  width: 100%;
+  user-select: none;
+}
+
+.p-input {
+  width: 100%;
+}
+
+::ng-deep {
+  .p-float-label > .ng-invalid.ng-dirty + label {
+    color: $error-color;
+  }
+
+  .p-input {
+    &.ng-dirty.ng-invalid {
+      border-color: $error-color;
+
+      &:hover {
+        border-color: $error-color;
+      }
+    }
+  }
+}
+
+.label--focus {
+  top: -0.75em;
+  font-size: 12px;
+}

@@ -1,0 +1,20 @@
+<form
+  *ngIf="startedForm"
+  [formGroup]="formGroup"
+  class="midas__input__calendar"
+>
+  <label class="calendar__label">{{ label }}</label>
+
+  <div class="calendar__input">
+    <i class="pi pi-calendar input__icon"></i>
+    <p-calendar
+      id="float-input-calendar-{{ codeId }}"
+      class="p-input"
+      dateFormat="dd/mm/yy"
+      [formControlName]="controlName"
+      [placeholder]="placeholder"
+      [disabled]="disabled"
+      [showTime]="showTime"
+    ></p-calendar>
+  </div>
+</form>

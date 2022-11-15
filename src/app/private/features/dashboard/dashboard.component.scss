@@ -1,0 +1,143 @@
+.dashboard__overview {
+  width: 100vw;
+  padding: 24px 16px;
+  background: linear-gradient(
+    to top,
+    #a27df8,
+    var(--primary-color),
+    var(--primary-color),
+    var(--primary-color)
+  );
+  border-radius: 0 0 8px 8px;
+  margin: 0 0 32px;
+}
+
+.overview__bg {
+  width: 100vw;
+  height: 185px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.5;
+}
+
+.overview__top {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+}
+
+.top__month {
+  display: flex;
+  align-items: center;
+  justify-self: center;
+}
+
+.month__label {
+  color: var(--primary-50);
+}
+
+.top__actions {
+  display: flex;
+  gap: 16px;
+  justify-content: flex-end;
+
+  i {
+    color: var(--primary-50);
+  }
+}
+
+.overview__wallet {
+  height: 12vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.wallet__label {
+  color: var(--primary-100);
+}
+
+.wallet__current {
+  color: var(--primary-50);
+  font-size: var(--extra-font-size);
+  font-weight: bold;
+}
+
+.overview__resume {
+  display: flex;
+  gap: 12px;
+  margin: 0 0 -48px;
+}
+
+.resume__income,
+.resume__expense {
+  width: 100%;
+  padding: 8px 0;
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 3px 3px 35px #00000020;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.values__label {
+  font-size: var(--small-font-size);
+  margin: 0 0 2px;
+}
+
+.values__value {
+  font-weight: bold;
+}
+
+.dashboard__actions {
+  width: 100vw;
+  padding: 16px 24px;
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  margin: 0 0 32px;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.actions__action {
+  width: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  text-decoration: none;
+  color: #333;
+}
+
+.action__icon__container {
+  width: 60px;
+  height: 60px;
+  border-radius: 60px;
+  background-color: #fff;
+  box-shadow: 3px 3px 35px #00000020;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.action__label {
+  text-align: center;
+  font-size: var(--tiny-font-size);
+  height: 32px;
+}
+
+.dashboard__historic__chart {
+  padding: 0 24px;
+}
+
+hr {
+  margin: 16px 0;
+  opacity: 0.1;
+}

@@ -1,0 +1,35 @@
+<div class="sign__in">
+  <form class="sign__in__form" [formGroup]="signInForm">
+    <shared-input
+      leftIcon="pi-user"
+      label="E-mail"
+      placeholder="email@destrix.com"
+      controlName="userId"
+    ></shared-input>
+
+    <shared-input
+      leftIcon="pi-key"
+      placeholder="************"
+      label="Senha"
+      controlName="userSecret"
+      type="password"
+    ></shared-input>
+
+    <div class="form__submit">
+      <shared-button
+        type="button"
+        icon="pi-sign-in"
+        label="Entrar"
+        (onClick)="signIn()"
+        [loading]="loading"
+      ></shared-button>
+    </div>
+  </form>
+
+  <div class="sign__in__redirect">
+    <a class="redirect__sign__on" [routerLink]="['/auth/cadastro']">
+      <span>Não possui uma conta?</span>
+      <span class="sign__on__bold">Cadastre-se</span>
+    </a>
+  </div>
+</div>

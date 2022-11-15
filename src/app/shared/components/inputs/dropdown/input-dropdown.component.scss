@@ -1,0 +1,26 @@
+.shared__input__dropdown {
+  transition: 0.2s;
+  padding: 16px 0 0 0;
+}
+
+.dropdown {
+  margin: 8px 0 0;
+}
+
+::ng-deep {
+  .p-dropdown {
+    width: 100%;
+  }
+
+  .p-dropdown-panel {
+  }
+
+  .p-dropdown-empty-message {
+  }
+
+  .p-dropdown-item {
+  }
+
+  .p-highlight {
+  }
+}

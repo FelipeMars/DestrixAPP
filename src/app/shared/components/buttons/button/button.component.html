@@ -1,0 +1,19 @@
+<div
+  class="shared__button"
+  [ngClass]="{ 'button--full--width': fullWidth, 'button--loading': loading }"
+>
+  <p-button
+    class="button_p-button"
+    [label]="label"
+    id="button-{{ codeId }}"
+    type="button"
+    [ngClass]="{
+      'p-button-sm': size === 'small',
+      'p-button-lg': size === 'large'
+    }"
+    [icon]="hasIcon || loading ? generateIconString() : ''"
+    [iconPos]="iconPosition"
+    [disabled]="disabled || loading"
+    (click)="handleClick()"
+  ></p-button>
+</div>

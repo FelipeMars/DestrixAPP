@@ -1,0 +1,10 @@
+::ng-deep {
+  #shared-input-file
+    > p-fileupload
+    > div
+    > div.p-fileupload-content
+    > p-progressbar
+    > div {
+    display: none !important;
+  }
+}

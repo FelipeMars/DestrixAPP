@@ -1,0 +1,10 @@
+::ng-deep .shared__button .button_p-button .p-button {
+  min-width: 150px;
+}
+::ng-deep .shared__button.button--full--width .button_p-button .p-button {
+  min-width: 100%;
+}
+
+.button--loading {
+  pointer-events: none;
+}

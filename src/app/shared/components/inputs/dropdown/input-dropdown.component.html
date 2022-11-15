@@ -1,0 +1,21 @@
+<form
+  *ngIf="startedForm"
+  [formGroup]="formGroup"
+  class="shared__input__dropdown"
+>
+  <label>{{ label }}</label>
+
+  <div class="dropdown">
+    <p-dropdown
+      [options]="options"
+      [formControlName]="controlName"
+      [placeholder]="placeholder"
+      [optionLabel]="optionLabel"
+      [showClear]="true"
+      [disabled]="disabled"
+      [editable]="editable"
+      emptyMessage="Nenhum resultado encontrado"
+      emptyFilterMessage="Nenhum resultado encontrado"
+    ></p-dropdown>
+  </div>
+</form>

@@ -1,0 +1,26 @@
+.sign__in {
+  width: 80vw;
+}
+
+.sign__in__form {
+  margin: 0 0 48px;
+}
+
+.form__submit {
+  display: block;
+  margin: 32px auto;
+}
+
+.redirect__sign__on {
+  text-decoration: none;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  color: #999;
+  font-size: var(--secondary-font-size);
+}
+
+.sign__on__bold {
+  font-weight: bold;
+  color: var(--primary-color);
+}

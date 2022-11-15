@@ -1,0 +1,91 @@
+<section id="transaction-new" class="transaction__new">
+  <header class="transaction__header">
+    <p class="header__title">Nova transação</p>
+    <p class="header__description">
+      Registre suas movimentações do dia para controlar melhor a sua vida
+      financeira. Escolha uma das opções abaixo.
+    </p>
+    <img class="header__bg" src="assets/images/backgrounds/sprinkles.svg" />
+  </header>
+
+  <form class="transaction__form" [formGroup]="transactionForm">
+    <div
+      class="form__previous"
+      *ngIf="currentStep > 0"
+      (click)="previousStep()"
+    >
+      <p class="previous__text">
+        <i class="pi pi-angle-left"></i>
+        Voltar
+      </p>
+    </div>
+
+    <div class="form__types" *ngIf="currentStep === TRANSACTION_TYPE_STEP">
+      <p class="types__title">Selecione o tipo da transação</p>
+
+      <div
+        class="types__type"
+        (click)="setTransactionType(TRANSACTION_TYPE.income)"
+      >
+        <i class="pi pi-arrow-up type__icon"></i>
+        <div class="type__description">
+          <p class="description__title">Entrada</p>
+          <p class="description__text">
+            Todo o dinheiro que você recebe através de salário, investimentos,
+            entre outros.
+          </p>
+        </div>
+        <i class="pi pi-angle-right type__select"></i>
+      </div>
+
+      <div
+        class="types__type"
+        (click)="setTransactionType(TRANSACTION_TYPE.expense)"
+      >
+        <i class="pi pi-arrow-down type__icon"></i>
+        <div class="type__description">
+          <p class="description__title">Saída</p>
+          <p class="description__text">
+            Todo o dinheiro que você gasta, seja com contas a pagar,
+            entretenimento, entre outros.
+          </p>
+        </div>
+        <i class="pi pi-angle-right type__select"></i>
+      </div>
+    </div>
+
+    <div class="form__details" *ngIf="currentStep === DETAILS_STEP">
+      <shared-input-currency
+        label="Valor da transação"
+        controlName="amount"
+        placeholder="R$ 0,00"
+        leftIcon="pi-dollar"
+      ></shared-input-currency>
+
+      <shared-input-calendar
+        label="Data da transação"
+        controlName="transactionDate"
+        placeholder="dd/MM/yyyy"
+        [showTime]="true"
+      ></shared-input-calendar>
+
+      <div class="description__container">
+        <shared-input
+          label="Descrição"
+          placeholder="Adicione um comentário à sua transação"
+          controlName="description"
+          leftIcon="pi-align-left"
+        ></shared-input>
+      </div>
+    </div>
+
+    <shared-button
+      label="Salvar transação"
+      *ngIf="currentStep === SUBMIT_STEP"
+      icon="pi-save"
+      (click)="submitTransaction()"
+      [loading]="sendingTransaction"
+      type="button"
+    ></shared-button>
+  </form>
+</section>

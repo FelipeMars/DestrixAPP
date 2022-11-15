@@ -1,0 +1,33 @@
+<form
+  *ngIf="startedForm"
+  [formGroup]="formGroup"
+  class="shared__input"
+  [ngClass]="{
+    'input--padding--top': focus || formGroup.value[controlName] !== '',
+    'p-inputtext-sm': size === 'small',
+    'p-inputtext-lg': size === 'large'
+  }"
+>
+  <span
+    class="p-float-label"
+    [ngClass]="{
+      'p-input-icon-left': hasIcon
+    }"
+  >
+    <i *ngIf="hasIcon" class="pi {{ leftIcon }}"></i>
+    <input
+      id="float-input-{{ codeId }}"
+      class="p-input"
+      pInputText
+      currencyMask
+      [options]="{ prefix: prefix, thousands: '.', decimal: ',' }"
+      [type]="type"
+      [formControlName]="controlName"
+      [placeholder]="placeholder"
+      [disabled]="disabled"
+    />
+    <label [ngClass]="{ 'label--focus': floatLabel }" for="float-input">{{
+      label
+    }}</label>
+  </span>
+</form>

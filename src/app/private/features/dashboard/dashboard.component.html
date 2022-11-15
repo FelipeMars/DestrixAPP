@@ -1,0 +1,77 @@
+<main id="private-dashboard" class="dashboard">
+  <div class="dashboard__overview">
+    <div class="overview__top">
+      <div></div>
+      <div class="top__month">
+        <p class="month__label">Janeiro de 2022</p>
+      </div>
+      <div class="top__actions">
+        <i class="pi pi-eye"></i>
+      </div>
+    </div>
+
+    <div class="overview__wallet">
+      <p class="wallet__label">
+        <i class="pi pi-wallet"></i>
+        Saldo em conta
+      </p>
+      <p class="wallet__current">
+        {{ resume?.totalAmount || 0 | currency: "R$" }}
+      </p>
+    </div>
+    <div class="overview__resume">
+      <div class="resume__income">
+        <i class="pi pi-arrow-up income__icon"></i>
+        <div class="income__values">
+          <p class="values__label">Entradas</p>
+          <p class="values__value">
+            {{ resume?.totalIncome || 0 | currency: "R$" }}
+          </p>
+        </div>
+      </div>
+      <div class="resume__expense">
+        <i class="pi pi-arrow-down expense__icon"></i>
+        <div class="expense__values">
+          <p class="values__label">Saídas</p>
+          <p class="values__value">
+            {{ resume?.totalExpense || 0 | currency: "R$" }}
+          </p>
+        </div>
+      </div>
+    </div>
+    <img class="overview__bg" src="assets/images/backgrounds/sprinkles.svg" />
+  </div>
+
+  <div class="dashboard__actions">
+    <a
+      class="actions__action"
+      [routerLink]="['/transacoes/novo']"
+      [queryParams]="{ type: 1 }"
+    >
+      <div class="action__icon__container">
+        <i class="pi pi-arrow-up income__icon"></i>
+      </div>
+      <p class="action__label">Nova entrada</p>
+    </a>
+    <a
+      class="actions__action"
+      [routerLink]="['/transacoes/novo']"
+      [queryParams]="{ type: 2 }"
+    >
+      <div class="action__icon__container">
+        <i class="pi pi-arrow-down income__icon"></i>
+      </div>
+      <p class="action__label">Nova saída</p>
+    </a>
+  </div>
+
+  <div class="dashboard__historic__chart">
+    <div class="chart__container">
+      <shared-charts-line
+        *ngIf="lastMonths !== null"
+        [data]="lastMonths"
+        label="Últimos 6 meses"
+      ></shared-charts-line>
+    </div>
+  </div>
+</main>

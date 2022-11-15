@@ -1,0 +1,11 @@
+<div class="shared__progress__bar">
+  <p-progressBar [value]="percentageValue"></p-progressBar>
+  <div class="progress__bar__values" *ngIf="showProgressValues">
+    <p class="values__value value__current">
+      {{ currencyValue }}
+    </p>
+    <p class="values__value value__maximum">
+      {{ maxValue }}
+    </p>
+  </div>
+</div>

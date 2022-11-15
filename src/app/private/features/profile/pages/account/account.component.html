@@ -1,0 +1,37 @@
+<section id="profile-account" class="profile__acount">
+  <header class="account__header">
+    <div class="header__actions">
+      <p class="actions__signout" (click)="signOut()">
+        Sair
+        <i class="pi pi-sign-out"></i>
+      </p>
+    </div>
+
+    <div class="header__profile">
+      <div class="profile__picture"></div>
+      <div class="profile__info">
+        <p class="info__name">Felipe Martins de Oliveira</p>
+        <p class="info__email">felipemartoliveira@gmail.com</p>
+      </div>
+    </div>
+    <img class="header__bg" src="assets/images/backgrounds/sprinkles.svg" />
+  </header>
+
+  <form class="account__info" [formGroup]="accountForm">
+    <p class="info__title">Informações da conta</p>
+
+    <div class="info__fields">
+      <shared-input
+        controlName="name"
+        label="Nome Completo"
+        leftIcon="pi-user"
+      ></shared-input>
+
+      <shared-input
+        controlName="email"
+        label="E-mail"
+        leftIcon="pi-envelope"
+      ></shared-input>
+    </div>
+  </form>
+</section>

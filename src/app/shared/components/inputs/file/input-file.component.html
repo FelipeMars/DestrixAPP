@@ -1,0 +1,23 @@
+<div class="shared__input__file" id="shared-input-file">
+  <p class="file__label" *ngIf="label !== ''">{{ label }}</p>
+  <p-fileUpload
+    (onSelect)="onUpload($event)"
+    [accept]="accept"
+    [maxFileSize]="maxFileSize"
+    [fileLimit]="limit"
+    [chooseLabel]="uploadLabel"
+    chooseIcon="pi pi-upload"
+    [showCancelButton]="false"
+    [showUploadButton]="false"
+    [multiple]="multiple"
+    (onRemove)="onRemove($event)"
+  >
+    <ng-template pTemplate="content">
+      <ul *ngIf="uploadedFiles.length">
+        <li *ngFor="let file of uploadedFiles; let i = index">
+          {{ file.name }} - {{ file.size }} bytes
+        </li>
+      </ul>
+    </ng-template>
+  </p-fileUpload>
+</div>

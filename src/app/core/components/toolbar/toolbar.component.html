@@ -1,0 +1,17 @@
+<footer id="toolbar" class="toolbar">
+  <nav class="toolbar__nav">
+    <ul class="nav__ul">
+      <li *ngFor="let navItem of navList; let i = index">
+        <a
+          class="nav__link"
+          [routerLink]="navItem.route"
+          routerLinkActive="nav__link__active"
+          [routerLinkActiveOptions]="{ exact: navItem.exact }"
+        >
+          <i class="pi" [ngClass]="navItem.icon"></i>
+          <p>{{ navItem.name }}</p>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</footer>
