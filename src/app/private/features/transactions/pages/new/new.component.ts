@@ -1,3 +1,4 @@
+import { CurrencyPipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -10,6 +11,7 @@ import { DestrixService } from 'src/app/core/services/api/destrix.service';
   selector: 'app-new',
   templateUrl: './new.component.html',
   styleUrls: ['./new.component.scss'],
+  providers: [CurrencyPipe],
 })
 export class NewComponent implements OnInit {
   // consts
@@ -30,7 +32,8 @@ export class NewComponent implements OnInit {
     private route: ActivatedRoute,
     private messageService: MessageService,
     private destrixService: DestrixService,
-    private router: Router
+    private router: Router,
+    private currencyPipe: CurrencyPipe
   ) {
     this.transactionForm = this.getResetedTransactionForm();
   }
@@ -102,7 +105,10 @@ export class NewComponent implements OnInit {
     this.messageService.add({
       severity: 'success',
       summary: 'Transação salva com sucesso!',
-      detail: 'Transação ' + res.transactionReference,
+      detail:
+        'Nova transação de ' +
+        this.currencyPipe.transform(res.amount, 'R$') +
+        ' foi adicionada.',
     });
 
     this.router.navigate(['/']);

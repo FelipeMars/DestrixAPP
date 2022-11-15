@@ -5,7 +5,16 @@
         <i class="pi pi-wallet"></i>
         Saldo em conta
       </p>
-      <p class="wallet__current">
+
+      <div class="wallet__skeleton" *ngIf="loadingResume">
+        <shared-indicator-skeleton
+          width="200px"
+          height="32px"
+          borderRadius="8px"
+        ></shared-indicator-skeleton>
+      </div>
+
+      <p class="wallet__current" *ngIf="!loadingResume">
         {{ resume?.totalAmount || 0 | currency: "R$" }}
       </p>
     </div>
@@ -24,6 +33,14 @@
   </div>
 
   <div class="extract__transactions">
+    <div class="transactions__loading" *ngFor="let i of [1, 2, 3, 4, 5]">
+      <shared-indicator-skeleton
+        *ngIf="loadingExtract"
+        height="90px"
+        borderRadius="8px"
+      ></shared-indicator-skeleton>
+    </div>
+
     <div
       class="transactions__container"
       *ngIf="!loadingExtract && extract.length > 0"

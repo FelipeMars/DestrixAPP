@@ -11,22 +11,25 @@ import { DestrixService } from 'src/app/core/services/api/destrix.service';
 })
 export class ExtractComponent implements OnInit {
   public resume: Resume | null = null;
+  public loadingResume: boolean = false;
+
   public extract: Transaction[] = [];
+  public loadingExtract: boolean = false;
 
   public periods: Period[] = [];
   public selectedPeriod: number = 7;
 
-  public loadingExtract: boolean = false;
-
   constructor(private destrixService: DestrixService) {}
 
   ngOnInit(): void {
-    this.getResume();
     this.loadPeriods();
+    this.getResume();
     this.getExtract();
   }
 
   private getResume(): void {
+    this.loadingResume = true;
+
     const date = new Date();
     const month = `${date.getFullYear()}-${(date.getMonth() + 1)
       .toString()
@@ -39,10 +42,14 @@ export class ExtractComponent implements OnInit {
   }
 
   private processSuccessGetResume(res: Resume): void {
+    this.loadingResume = false;
+
     this.resume = res;
   }
 
   private processFailGetResume(err: any): void {
+    this.loadingResume = false;
+
     console.error('An error ocurred while trying to resume', err);
   }
 

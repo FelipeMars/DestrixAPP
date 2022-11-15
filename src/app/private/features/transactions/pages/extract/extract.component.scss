@@ -21,6 +21,10 @@
   justify-content: center;
 }
 
+.wallet__skeleton {
+  margin: 10px 0 0 0;
+}
+
 .wallet__label {
   color: var(--primary-100);
 }
@@ -81,6 +85,10 @@
   display: flex;
   align-items: center;
   gap: 16px;
+}
+
+.transactions__loading {
+  margin: 0 0 16px;
 }
 
 .income__icon,

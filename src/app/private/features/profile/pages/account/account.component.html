@@ -8,10 +8,34 @@
     </div>
 
     <div class="header__profile">
-      <div class="profile__picture"></div>
+      <div class="profile__picture" *ngIf="!loadingUser">
+        <p class="picture__letter">{{ (user?.name)![0] }}</p>
+      </div>
+
+      <shared-indicator-skeleton
+        *ngIf="loadingUser"
+        width="80px"
+        height="80px"
+        borderRadius="80px"
+      ></shared-indicator-skeleton>
+
       <div class="profile__info">
-        <p class="info__name">Felipe Martins de Oliveira</p>
-        <p class="info__email">felipemartoliveira@gmail.com</p>
+        <div class="info__skeleton" *ngIf="loadingUser">
+          <shared-indicator-skeleton
+            width="125px"
+            height="24px"
+            borderRadius="8px"
+          ></shared-indicator-skeleton>
+
+          <shared-indicator-skeleton
+            width="200px"
+            height="24px"
+            borderRadius="8px"
+          ></shared-indicator-skeleton>
+        </div>
+
+        <p class="info__name">{{ user?.name }}</p>
+        <p class="info__email">{{ user?.email }}</p>
       </div>
     </div>
     <img class="header__bg" src="assets/images/backgrounds/sprinkles.svg" />

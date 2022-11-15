@@ -11,6 +11,9 @@ import { DestrixService } from 'src/app/core/services/api/destrix.service';
   styleUrls: ['./account.component.scss'],
 })
 export class AccountComponent implements OnInit {
+  public user: User | null = null;
+  public loadingUser: boolean = false;
+
   // Account Form
   public accountForm: FormGroup;
 
@@ -35,6 +38,8 @@ export class AccountComponent implements OnInit {
   }
 
   private getCurrentUser(): void {
+    this.loadingUser = true;
+
     this.destrixService.getCurrentUser().subscribe({
       next: (res: User) => this.processSuccessGetCurrentUser(res),
       error: (err: any) => this.processFailGetCurrentUser(err),
@@ -42,15 +47,20 @@ export class AccountComponent implements OnInit {
   }
 
   private processSuccessGetCurrentUser(res: User): void {
+    this.user = res;
+
     const form: any = this.accountForm.value;
     const resAny: any = res;
 
     for (let key in form) {
       this.accountForm.patchValue({ [key]: resAny[key] || '' });
     }
+    this.loadingUser = false;
   }
 
   private processFailGetCurrentUser(err: any): void {
+    this.loadingUser = false;
+
     console.error('On error ocurred on getting current user', err);
   }
 

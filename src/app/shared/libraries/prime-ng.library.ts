@@ -16,6 +16,7 @@ import { ChartModule } from 'primeng/chart';
 import { CalendarModule } from 'primeng/calendar';
 import { DropdownModule } from 'primeng/dropdown';
 import { FileUploadModule } from 'primeng/fileupload';
+import { SkeletonModule } from 'primeng/skeleton';
 
 const PRIMENG_MODULES = [
   InputTextModule,
@@ -32,6 +33,7 @@ const PRIMENG_MODULES = [
   CalendarModule,
   DropdownModule,
   FileUploadModule,
+  SkeletonModule,
 ];
 
 @NgModule({

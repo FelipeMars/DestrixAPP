@@ -3,10 +3,15 @@
     <div class="overview__top">
       <div></div>
       <div class="top__month">
-        <p class="month__label">Janeiro de 2022</p>
+        <p class="month__label">{{ monthName }} de {{ year }}</p>
       </div>
       <div class="top__actions">
-        <i class="pi pi-eye"></i>
+        <div class="top__actions__action" (click)="setPrivateValues()">
+          <i
+            class="pi"
+            [ngClass]="privateValues ? 'pi-eye-slash' : 'pi-eye'"
+          ></i>
+        </div>
       </div>
     </div>
 
@@ -15,26 +20,54 @@
         <i class="pi pi-wallet"></i>
         Saldo em conta
       </p>
-      <p class="wallet__current">
-        {{ resume?.totalAmount || 0 | currency: "R$" }}
+      <p class="wallet__current" *ngIf="!loadingResume">
+        {{
+          privateValues ? "R$ ---" : (resume?.totalAmount || 0 | currency: "R$")
+        }}
       </p>
+      <div class="current__skeleton" *ngIf="loadingResume">
+        <shared-indicator-skeleton
+          width="150px"
+          height="32px"
+        ></shared-indicator-skeleton>
+      </div>
     </div>
+
     <div class="overview__resume">
       <div class="resume__income">
         <i class="pi pi-arrow-up income__icon"></i>
         <div class="income__values">
           <p class="values__label">Entradas</p>
-          <p class="values__value">
-            {{ resume?.totalIncome || 0 | currency: "R$" }}
+          <shared-indicator-skeleton
+            *ngIf="loadingResume"
+            width="80px"
+            height="22px"
+          ></shared-indicator-skeleton>
+          <p class="values__value" *ngIf="!loadingResume">
+            {{
+              privateValues
+                ? "R$ ---"
+                : (resume?.totalIncome || 0 | currency: "R$")
+            }}
           </p>
         </div>
       </div>
+
       <div class="resume__expense">
         <i class="pi pi-arrow-down expense__icon"></i>
         <div class="expense__values">
           <p class="values__label">Saídas</p>
-          <p class="values__value">
-            {{ resume?.totalExpense || 0 | currency: "R$" }}
+          <shared-indicator-skeleton
+            *ngIf="loadingResume"
+            width="80px"
+            height="22px"
+          ></shared-indicator-skeleton>
+          <p class="values__value" *ngIf="!loadingResume">
+            {{
+              privateValues
+                ? "R$ ---"
+                : (resume?.totalExpense || 0 | currency: "R$")
+            }}
           </p>
         </div>
       </div>
@@ -68,10 +101,15 @@
   <div class="dashboard__historic__chart">
     <div class="chart__container">
       <shared-charts-line
-        *ngIf="lastMonths !== null"
+        *ngIf="!loadingLastMonths && lastMonths !== null"
         [data]="lastMonths"
         label="Últimos 6 meses"
       ></shared-charts-line>
     </div>
+
+    <shared-indicator-skeleton
+      *ngIf="loadingLastMonths"
+      height="216px"
+    ></shared-indicator-skeleton>
   </div>
 </main>

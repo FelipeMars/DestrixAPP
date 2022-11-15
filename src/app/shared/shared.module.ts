@@ -31,6 +31,7 @@ import { InputCalendarComponent } from './components/inputs/calendar/input-calen
 import { InputDropdownComponent } from './components/inputs/dropdown/input-dropdown.component';
 import { InputFileComponent } from './components/inputs/file/input-file.component';
 import { LineComponent } from './components/charts/line/line.component';
+import { SkeletonComponent } from './components/indicators/skeleton/skeleton.component';
 
 const SHARED_COMPONENTS = [
   ButtonComponent,
@@ -42,6 +43,7 @@ const SHARED_COMPONENTS = [
   InputDropdownComponent,
   InputFileComponent,
   LineComponent,
+  SkeletonComponent,
 ];
 
 @NgModule({
