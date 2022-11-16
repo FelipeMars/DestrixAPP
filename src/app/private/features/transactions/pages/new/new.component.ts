@@ -48,7 +48,7 @@ export class NewComponent implements OnInit {
     return this.formBuilder.group({
       transactionType: [TransactionType.undefined, [Validators.required]],
       transactionDate: [new Date(), [Validators.required]],
-      amount: [0, [Validators.required]],
+      amount: [0],
       description: [''],
     });
   }
