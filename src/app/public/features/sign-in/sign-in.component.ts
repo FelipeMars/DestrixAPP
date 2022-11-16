@@ -30,7 +30,7 @@ export class SignInComponent implements OnInit {
         },
       ],
       userSecret: ['', [Validators.required]],
-      keepConected: [false],
+      keepConected: [true],
     });
   }
 
